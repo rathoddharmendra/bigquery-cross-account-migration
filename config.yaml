@@ -1,0 +1,9 @@
+projects:
+  - acct-darry
+  - acct-stories
+
+source:
+  - acct-darry
+
+destination:
+  - acct-stories

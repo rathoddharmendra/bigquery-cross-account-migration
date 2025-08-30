@@ -10,3 +10,42 @@ BQ cross account migration project using DevOps setup
 into a single destination project, preserving dataset/table structure.
 - If a dataset/table name conflict occurs at the destination, a random 2-digit suffix will be appended.
 - All created datasets will be set to location 'EU'.
+
+
+
+
+Purpose: migrate BigQuery datasets from a source account/project into a destination project.
+
+Features:
+
+Works from Jupyter notebook or CLI.
+
+Supports scanning multiple source projects.
+
+Handles dataset/table name conflicts.
+
+EU-only (or configurable).
+
+Optional GCS fallback.
+
+Quickstart:
+
+Install dependencies with pip install -r requirements.txt.
+
+Run python scripts/bq_migrate_cli.py --source-key ... --dest-project ....
+
+Or open notebook/migrate_demo.ipynb and run interactively.
+
+Auth:
+
+Source: pass JSON key.
+
+Destination: use ADC (gcloud auth application-default login) or pass another key.
+
+Permissions needed:
+
+Source SA: roles/bigquery.dataViewer on source projects.
+
+Destination SA: roles/bigquery.dataEditor on destination project.
+
+(Optional) GCS roles if staging.

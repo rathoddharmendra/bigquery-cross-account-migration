@@ -49,3 +49,40 @@ Source SA: roles/bigquery.dataViewer on source projects.
 Destination SA: roles/bigquery.dataEditor on destination project.
 
 (Optional) GCS roles if staging.
+
+
+
+🚀 Suggested Workflow
+
+One-time setup
+
+Create a dedicated repo (bq-migration-tool).
+
+Commit code + notebook + requirements.
+
+Grant IAM roles for source and destination SAs.
+
+Dry run first
+
+Run notebook with dry_run=True to preview what will be created.
+
+Run full migration
+
+Use notebook (interactive) or CLI for automation.
+
+Optionally enable GCS fallback if direct copy fails.
+
+Post-migration checks
+
+Verify row counts (SELECT COUNT(*)) in source vs destination.
+
+Run sanity queries in new project.
+
+
+🛠️ Enhancements you can add later
+
+Logging results into CSV (success/failure per table).
+
+Parallel execution with concurrent.futures to speed up many tables.
+
+Dockerfile for portable runs.
